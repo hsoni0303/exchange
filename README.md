@@ -5,6 +5,11 @@
 npm install
 ```
 
+### For CORS In A Seprate Terminal
+```
+node cors 8081
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
