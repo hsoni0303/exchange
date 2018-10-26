@@ -1,12 +1,14 @@
 <template>
   <div id="pair-section">
-    <h1>Pairs</h1>
-    <select :value="selected_pair" @change="getPair">
-      <option disabled value="">Please Select</option>
-      <option v-for="pair in pairs" :value="pair.symbol" :key="pair.id">
-        {{ pair.symbol }}
-      </option>
-    </select>
+    <h1>Pair</h1>
+    <div class="wrapper-dropdown">
+      <select :value="selected_pair" @change="getPair">
+        <option disabled value="">Please Select</option>
+        <option v-for="pair in pairs" :value="pair.symbol" :key="pair.id">
+          {{ pair.symbol }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
@@ -48,16 +50,10 @@ export default {
     width: 100%;
     height: 100vh;
     text-align: center;
-    margin: 0 auto;
-    background: rgb(74, 36, 84);
-    background: linear-gradient(
-      0deg,
-      rgba(74, 36, 84, 1) 0%,
-      rgba(178, 0, 77, 1) 50%
-    );
+    margin: auto;
+    background-color: white;
   }
   h1 {
-    color: white;
     margin: 0;
     padding-top: 70px;
     padding-bottom: 20px;

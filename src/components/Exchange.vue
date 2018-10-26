@@ -1,12 +1,14 @@
 <template>
   <div id="exchange-section">
     <h1>Exchange</h1>
-    <select :value="selected_exchange" @change="setExchange">
-      <option disabled value="">Please Select</option>
-      <option v-for='item in exchanges' :key="item" :value="item">
-        {{ item }}
-      </option>
-    </select>
+    <div class="wrapper-dropdown">
+      <select :value="selected_exchange" @change="setExchange">
+        <option disabled value="">Please Select</option>
+        <option v-for='item in exchanges' :key="item" :value="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
@@ -68,15 +70,9 @@ export default {
     text-align: center;
     margin: auto;
     padding-top: 40px;
-    background: rgb(74, 36, 84);
-    background: linear-gradient(
-      0deg,
-      rgba(74, 36, 84, 1) 0%,
-      rgba(178, 0, 77, 1) 50%
-    );
+    background-color: #fff;
   }
   h1 {
-    color: white;
     margin: 0;
     padding-top: 70px;
     padding-bottom: 20px;

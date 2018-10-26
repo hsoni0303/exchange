@@ -6,13 +6,16 @@ import Pairs from './components/Pairs.vue';
 import Trades from './components/Trades.vue';
 import '../node_modules/golden-layout/src/css/goldenlayout-base.css';
 import '../node_modules/golden-layout/src/css/goldenlayout-dark-theme.css';
+import './assets/main.css';
 
 Vue.config.productionTip = false;
 
 const $ = require('jquery');
+const moment = require('moment');
 
 window.jQuery = $;
 window.$ = $;
+window.moment = moment;
 
 Vue.component('app', App);
 Vue.component('exchange', Exchange);

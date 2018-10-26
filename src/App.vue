@@ -118,9 +118,9 @@ export default {
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -129,5 +129,13 @@ body {
 .lm_item {
   width: 50vw;
   height: 100vh;
+}
+/* Select CSS */
+select {
+  box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+  background-color: #fff;
+  outline: none;
+  color: #000;
+  border-radius: 5px;
 }
 </style>

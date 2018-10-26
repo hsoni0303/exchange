@@ -5,15 +5,15 @@
       <thead>
         <tr>
           <th>Size</th>
-          <th>Price</th>
+          <th>Price ( {{ currency }} )</th>
           <th>Time</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for='(item, index) in tradesData' :key='index'>
-          <td>{{ item.amount }}</td>
-          <td>{{ item.price }}</td>
-          <td>{{ item.datetime }}</td>
+          <td class="amount">{{ item.amount | amountFilter }}</td>
+          <td class="price">{{ item.price | priceFilter }}</td>
+          <td class="dateTime">{{ item.datetime | getTime }}</td>
         </tr>
       </tbody>
     </table>
@@ -28,6 +28,22 @@ export default {
       // eslint-disable-next-line
       return this.$store.state.trades.reverse();
     },
+    currency: function() {
+      const pair = this.$store.state.pair;
+      return pair.split('/')[1];
+    },
+  },
+  filters: {
+    getTime(time) {
+      const d = moment(time).format("DD-MM-YY  hh:mm:ss");
+      return d;
+    },
+    amountFilter(content) {
+      return content.toFixed(5);
+    },
+    priceFilter(content) {
+      return content.toFixed(3);
+    },
   },
 };
 </script>
@@ -38,16 +54,10 @@ export default {
   height: 100vh;
   text-align: center;
   margin: 0 auto;
-  background: rgb(74, 36, 84);
-  background: linear-gradient(
-    0deg,
-    rgba(74, 36, 84, 1) 0%,
-    rgba(178, 0, 77, 1) 50%
-  );
+  background-color: white;
 }
 h1 {
   margin: 0;
-  color: #fff;
   font-weight: 400;
   font-size: 150%;
   margin-bottom: 20px;
@@ -65,13 +75,19 @@ table {
 }
 th {
   padding: 10px 70px;
-  color: #fff;
 }
 td {
-  color: #fff;
-  padding: 2px 10px;
+  padding: 3px 5px;
 }
-tr:nth-child(odd) {
-  background-color: #7785aa;
+tbody tr:nth-child(even) {
+  background-color: #ececec;
+  color: #000;
+}
+tr:nth-child(even) {
+  border-right: 2px solid greenyellow;
+}
+thead tr {
+  background-color: #636363;
+  color: #fff;
 }
 </style>
